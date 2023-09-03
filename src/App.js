@@ -1,24 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Plot from 'react-plotly.js';
 
 function App() {
+  const data = [{
+    x: [0, 1, 2, 3, 4],
+    y: [1, 5, 3, 7, 5],
+    mode: 'lines+markers',
+    type: 'scatter'
+  }, {
+    x: [1, 2, 3, 4, 5],
+    y: [4, 0, 4, 6, 8],
+    mode: 'lines+markers',
+    type: 'scatter'
+  }];
+
+  const layout = {
+    width: 640,
+    height: 640,
+    title: 'A Demo Line Plot'
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Plot
+      data={data}
+      layout={layout}
+    />
   );
 }
 
